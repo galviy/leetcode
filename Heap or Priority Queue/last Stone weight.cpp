@@ -28,7 +28,7 @@ public:
         }
         cout << stones[stones.size()-1] << endl;
 
-        return 0;
+        return  stones[stones.size()-1];
     }
 };
 
