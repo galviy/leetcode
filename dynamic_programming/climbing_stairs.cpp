@@ -1,11 +1,33 @@
 #include <iostream>
 #include <vector>
 
+#define ll long long
+
 using namespace std;
 
+class Solution {
+public:
+    ll fibonacci(ll n, vector<ll>& memo) {
+        if (n <= 1)
+            return 1;
+
+        if (memo[n] != -1)
+           return memo[n];
+
+        memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+        return memo[n];
+    }
+    ll climbStairs(ll n) {
+          vector<ll> memo(n + 1, -1);
+        return fibonacci(n,memo);
+    }
+};
 
 /*
-  int climbStairs(int n) {
+class Solution {
+public:
+
+    int climbStairs(int n) {
         if (n <= 2) return n;
         vector<int> dp(n+1);
         dp[1] = 1;
@@ -15,28 +37,11 @@ using namespace std;
         }
         return dp[n];
     }
-    Tabulation (buttom up)
-*/
-class Solution {
-public:
-    int fibonacci(int n, vector<int>& memo) {
-        if (n <= 1)
-            return 1;
-
-        if (memo[n] != -1)
-            return memo[n];
-
-        memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
-        return memo[n];
-    }
-    int climbStairs(int n) {
-          vector<int> memo(n + 1, -1);
-        return fibonacci(n,memo);
-    }
 };
+*/
 
 int main(){
     Solution s;
-    int p = s.climbStairs(2);
+    ll p = s.climbStairs(100);
     cout <<p << endl;
 }
