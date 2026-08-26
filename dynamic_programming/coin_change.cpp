@@ -144,6 +144,7 @@ public:
             }
            
         }
+        if(dp[left] == INT_MAX) dp[left] = -1;
         return dp[left];
     }
     int coinChange(vector<int>& coins, int amount) {
